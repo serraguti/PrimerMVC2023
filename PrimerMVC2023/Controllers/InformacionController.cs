@@ -10,6 +10,44 @@ namespace PrimerMVC2023.Controllers
             return View();
         }
 
+        public IActionResult ViewControllerPostModel()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ViewControllerPostModel(Comic comic)
+        {
+            //CUANDO RECIBAMOS UN COMIC, LO DEVOLVEMOS A LA VISTA COMO 
+            //UN MODEL
+            return View(comic);
+        }
+
+        //METODO PARA EL GET Y MOSTRAR LA VISTA LA PRIMERA VEZ
+        public IActionResult ViewControllerPost()
+        {
+            return View();
+        }
+
+        //EL METODO PARA RECIBIR LOS DATOS CON POST
+        //DEBE TENER UNA DECORACION
+        [HttpPost]
+        public IActionResult ViewControllerPost(string nombre, int edad)
+        {
+            ViewData["MENSAJE"] = "Nombre: " + nombre + ", Edad: "
+                + edad;
+            return View();
+        }
+
+        public IActionResult ViewControllerGet(string nombre, int edad)
+        {
+            //CON ESTO, YA HEMOS RECIBIDO LAS VARIABLES
+            //PODEMOS HACER CON ELLAS LO QUE DESEEMOS.
+            //POR EJEMPLO, VAMOS A ENVIAR LOS DATOS RECIBIDOS A LA VISTA
+            ViewData["MENSAJE"] = nombre + ", Edad: " + edad;
+            return View();
+        }
+
         public IActionResult ControllerViewModelList()
         {
             //VAMOS A REALIZAR UN BUCLE PARA CREARNOS MULTIPLES PERSONAS
