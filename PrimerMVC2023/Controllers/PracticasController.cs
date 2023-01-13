@@ -10,6 +10,30 @@ namespace PrimerMVC2023.Controllers
             return View();
         }
 
+        public IActionResult ConjeturaCollatzMultiple()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ConjeturaCollatzMultiple(int numeroCollatz)
+        {
+            List<int> listaNumeros = new List<int>();
+            while (numeroCollatz != 1)
+            {
+                if (numeroCollatz % 2 == 0)
+                {
+                    numeroCollatz = numeroCollatz / 2;
+                }
+                else
+                {
+                    numeroCollatz = numeroCollatz * 3 + 1;
+                }
+                listaNumeros.Add(numeroCollatz);
+            }
+            return View(listaNumeros);
+        }
+
         public IActionResult TablaMultiplicarModel()
         {
             return View();
