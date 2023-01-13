@@ -12,6 +12,15 @@ namespace PrimerMVC2023.Controllers
 
         public IActionResult ConjeturaCollatzMultiple()
         {
+            //VAMOS A GENERAR UNA SERIE DE NUMEROS ALEATORIOS
+            List<int> numerosRandom = new List<int>();
+            Random random = new Random();
+            for (int i = 1; i <= 5; i++)
+            {
+                int aleat = random.Next(1, 120);
+                numerosRandom.Add(aleat);
+            }
+            ViewData["RANDOM"] = numerosRandom;
             return View();
         }
 
@@ -31,6 +40,15 @@ namespace PrimerMVC2023.Controllers
                 }
                 listaNumeros.Add(numeroCollatz);
             }
+            //SIEMPRE DEBEMOS ENVIAR VIEWDATA TANTO EN GET COMO EN POST
+            List<int> numerosRandom = new List<int>();
+            Random random = new Random();
+            for (int i = 1; i <= 5; i++)
+            {
+                int aleat = random.Next(1, 120);
+                numerosRandom.Add(aleat);
+            }
+            ViewData["RANDOM"] = numerosRandom;
             return View(listaNumeros);
         }
 
